@@ -7,12 +7,16 @@ user_prompt = input("What would you like? (espresso/latte/cappuccino): ")
 # TODO prompt user to insert coins
 print("Insert Coins")
 # TODO create inputs for quarters, dimes, nickels, pennies
-# TODO create failsafe for if user invalid input
 quarters = int(input("How many quarters?: "))
 dimes = int(input("How many dimes?: "))
 nickels = int(input("How many nickels?: "))
 pennies = int(input("How many pennies?: "))
+# TODO create failsafe for if user invalid input
+if quarters or dimes or nickels or pennies != type(int):
+    print("invalid input")
 # TODO Create function which adds up all funds
+total_funds = quarters*25 + dimes*10 + nickels*5 + pennies
+fund_cats = {{"quarters": quarters}, {"dimes": dimes}, {"nickels": nickels}, {"pennies": pennies}}
 # TODO calculate and display change if any
 # TODO determine if coffee machine has enough supplies for drink and refund user money if not
 # TODO present drink to user and subtract supplies while adding profits
