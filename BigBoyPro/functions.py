@@ -27,11 +27,10 @@ dimesc = 0
 nickelsc = 0
 penniesc = 0
 
-while total_change > 0:
-    if total_change % 25 == 0:
-        quartersc = total_change/25
+if total_change % 25 == 0:
+    quartersc = total_change/25
 change_cats = [{"quarters": quartersc}, {"dimes": dimesc}, {"nickelsc": nickels}, {"pennies": penniesc}]
-print("hi")
+print(change_cats)
 # TODO determine if coffee machine has enough supplies for drink and refund user money if not
 # TODO present drink to user and subtract supplies while adding profits
 # TODO create function to report resources
