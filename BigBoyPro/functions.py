@@ -50,6 +50,8 @@ for ingredient in MENU[user_prompt]["ingredients"].values():
         resources[item] -= ingredient
 
 print(resources["water"])
+print(resources["milk"])
+print(resources["coffee"])
  #       if supplies - ingredient != 0:
   #          supplies -= ingredient
    #     else:
