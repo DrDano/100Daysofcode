@@ -26,22 +26,34 @@ print(fund_cats)
 
 # TODO calculate and display change if any
 item_cost = MENU[user_prompt]["cost"]
-total_change = total_funds - item_cost
+total_change = total_funds - item_cost * 100
 
 def change_calc():
     """takes the remainder of the total change after dividing by each form of currency and returns quantity of 'quarters', 'dimes', etc."""
     change_rem = total_change % 25
-    quar_num = total_change / 25
-    dime_num = change_rem / 10
+    quar_num = int(round(total_change / 25, 0))
+    dime_num = int(round(change_rem / 10, 0))
     change_rem % 10
-    nickel_num = change_rem / 5
+    if change_rem / 5 > 1:
+        nickel_num = int(round(change_rem / 5, 0))
+    else:
+        nickel_num = 0
     change_rem % 5
-    penny_num = change_rem / 1
+    penny_num = int(round(change_rem / 1, 0))
     change_rem % 1
     return quar_num, dime_num, nickel_num, penny_num
 
-change_calc()
 # TODO determine if coffee machine has enough supplies for drink and refund user money if not
+for ingredient in MENU[user_prompt]["ingredients"].values():
+    print(f"Ingredients{ingredient}")
+    for item in resources:
+        resources[item] -= ingredient
+
+print(resources["water"])
+ #       if supplies - ingredient != 0:
+  #          supplies -= ingredient
+   #     else:
+    #        print("Not enough supplies")
 
 change_cats = [{"quarters": change_calc()[0]}, {"dimes": change_calc()[1]}, {"nickelsc": change_calc()[2]}, {"pennies": change_calc()[3]}]
 print(change_cats)
